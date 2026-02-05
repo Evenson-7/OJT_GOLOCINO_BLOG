@@ -173,7 +173,7 @@ const Home = () => {
                 The Workplace
               </h2>
               <p className="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">
-                Where the code was written, bugs were squashed, and systems were deployed.
+                The place where I learned the value of teamwork, communication, and real-world application of my skills.
               </p>
             </div>
             
