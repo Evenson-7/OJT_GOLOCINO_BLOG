@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+/* --- 1. THIS LINE FIXES THE DARK MODE TOGGLE --- */
+/* It tells Tailwind: "Don't check system settings. Check if the '.dark' class exists." */
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  
+  --animate-blob: blob 7s infinite;
+  --animate-fadeIn: fadeIn 0.5s ease-out;
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes blob {
+    0% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+    100% { transform: translate(0px, 0px) scale(1); }
+  }
+}
+
+/* --- 2. GLOBAL RESET TO PREVENT WHITE BARS --- */
+html {
+  height: 100%;
+  /* Default Light Mode Background */
+  background-color: #f8fafc;
+}
+
+/* Manual Dark Mode Override for HTML */
+:where(.dark) html {
+  background-color: #020617; /* Dark Slate 950 */
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  font-family: var(--font-sans);
+  
+  /* Tailwind Colors with Transition */
+  @apply text-slate-900 dark:text-white transition-colors duration-300;
+  
+  /* Background Pattern */
+  background-color: #f8fafc;
+  background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-attachment: fixed;
+}
+
+/* Dark Mode Body Override */
+:where(.dark) body {
+  background-color: #020617;
+  background-image: radial-gradient(#1e293b 1px, transparent 1px);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-slate-700 rounded-full;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-400 dark:bg-slate-600;
+}
