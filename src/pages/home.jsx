@@ -97,7 +97,7 @@ const Home = () => {
             <div className="flex flex-col justify-center items-start space-y-8 z-10">
               <div className="flex items-center gap-3">
                  <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-blue-500/30">
-                   JS
+                   EG
                  </div>
                  <div>
                    <h2 className="text-xl font-bold text-slate-900 dark:text-white">Evenson R. Golocino Jr</h2>
